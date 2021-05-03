@@ -1,6 +1,6 @@
 from django.shortcuts import render
+from django.apps import apps
 
-# Create your views here.
 from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
