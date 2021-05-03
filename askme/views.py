@@ -1,13 +1,14 @@
+from django.apps import apps
+from django.http import JsonResponse
 from django.shortcuts import render
 
-# Create your views here.
-from rest_framework import viewsets
+from rest_framework import status, viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
-from .serializers import QuestionSerializer
-from .models import Question
 from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
+from .serializers import QuestionSerializer, AnswerSerializer
+from .models import Question, Answer
 
 
 class QuestionView(viewsets.ModelViewSet):
@@ -23,3 +24,7 @@ class QuestionView(viewsets.ModelViewSet):
         if query:
             queryset = queryset.annotate(rank=SearchRank(vector, query)).order_by('-rank')[:int(limit)]
         return queryset
+
+class AnswerView(viewsets.ModelViewSet):
+    queryset = Answer.objects.all()
+    serializer_class = AnswerSerializer

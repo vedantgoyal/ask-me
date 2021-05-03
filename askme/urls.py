@@ -4,6 +4,7 @@ from . import views
 
 router = routers.DefaultRouter()
 router.register(r'questions', views.QuestionView, basename='Question')
+router.register(r'answers', views.AnswerView)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
