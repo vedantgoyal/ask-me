@@ -6,6 +6,7 @@ from askme.views import MyOwnView
 
 router = routers.DefaultRouter()
 router.register(r'questions', views.QuestionView)
+router.register(r'answers', views.AnswerView)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
