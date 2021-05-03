@@ -18,7 +18,7 @@ class Question(models.Model):
 
 	question_content = models.CharField(max_length=255)
 	source_id = models.CharField(max_length=20)
-	source_link = models.CharField(blank=True, null=True, max_length=20)
+	source_link = models.CharField(blank=True, null=True, max_length=255)
 	source = models.CharField(blank=True, null=True, max_length=20, choices=SOURCE_CHOICES)
 	best_answer = models.CharField(blank=True, null=True, max_length=255)
 	best_answer_url = models.CharField(blank=True, null=True, max_length=255)
