@@ -10,6 +10,7 @@ class QuestionSerializer(serializers.HyperlinkedModelSerializer):
             "question_content",
             "source_id",
             "source",
+            "source_link",
             "best_answer",
             "best_answer_url",
         )
