@@ -16,13 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from askme.views import QuestionView
-from askme.views import MyOwnView
 from django.conf.urls import url
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', QuestionView.as_view({'get': 'list'}), name='question'),
-    url(r'^my-own-view/$', MyOwnView.as_view()),
     path('', include('askme.urls')),
 ]
