@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'askme.apps.AskmeConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
