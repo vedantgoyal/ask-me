@@ -16,8 +16,8 @@ class QuestionView(viewsets.ModelViewSet):
 
     def get_queryset(self):
         queryset = Question.objects.all()
-        query = self.request.query_params.get('query')
-        limit = self.request.query_params.get('limit') or 5
+        query = SearchQuery(self.request.query_params.get('query'), search_type='phrase')
+        limit = self.request.query_params.get('limit') or 100
         offset = self.request.query_params.get('offset') or 0
         vector = SearchVector('question_content')
         if query:

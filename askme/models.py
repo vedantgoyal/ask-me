@@ -16,12 +16,12 @@ class Question(models.Model):
 		(SOURCE_SLACK, 'Slack'),
 		)
 
-	question_content = models.CharField(max_length=255)
+	question_body = models.CharField(max_length=255)
 	source_id = models.CharField(max_length=20)
 	source_link = models.CharField(max_length=255)
 	source = models.CharField(max_length=20, choices=SOURCE_CHOICES)
-	best_answer = models.CharField(blank=True, null=True, max_length=255)
-	best_answer_url = models.CharField(blank=True, null=True, max_length=255)
+	username = models.CharField(max_length=60)
+	post_date = models.DateTimeField(default=timezone.now)
 	created_date = models.DateTimeField(default=timezone.now)
 	published_date = models.DateTimeField(blank=True, null=True)
 
@@ -36,10 +36,12 @@ class Question(models.Model):
 class Answer(models.Model):
 
 	question = models.ForeignKey('Question', on_delete=models.CASCADE)
-	reply_id = models.CharField(max_length=20)
 	source_id = models.CharField(max_length=20)
+	source_link = models.CharField(max_length=255)
 	answer_body = models.CharField(max_length=255)
 	is_best_answer = models.BooleanField()
+	username = models.CharField(max_length=60)
+	post_date = models.DateTimeField(default=timezone.now)
 	created_date = models.DateTimeField(default=timezone.now)
 	published_date = models.DateTimeField(blank=True, null=True)
 

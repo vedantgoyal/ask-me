@@ -7,25 +7,22 @@ class QuestionAdmin(admin.ModelAdmin):
 
     list_display = (
         "id",
-        "question_content",
+        "question_body",
         "source_id",
-        "source",
         "source_link",
-        "best_answer",
-        "best_answer_url",
-        "created_date",
-        "published_date",
+        "source",
+        "username",
+        "post_date",
     )
 
     search_fields = (
         "id",
-        "question_content",
+        "question_body",
         "source_id",
+        "source_link",
         "source",
-        "best_answer",
-        "best_answer_url",
-        "created_date",
-        "published_date",
+        "username",
+        "post_date",
     )
 
 
@@ -34,22 +31,22 @@ class AnswerAdmin(admin.ModelAdmin):
 
     list_display = (
         "id",
-        "question",
-        "reply_id",
+        "question_id",
         "source_id",
+        "source_link",
         "answer_body",
         "is_best_answer",
-        "created_date",
-        "published_date",
+        "username",
+        "post_date",
     )
 
     search_fields = (
         "id",
-        "question",
-        "reply_id",
+        "question_id",
         "source_id",
+        "source_link",
         "answer_body",
         "is_best_answer",
-        "created_date",
-        "published_date",
+        "username",
+        "post_date",
     )
