@@ -19,7 +19,7 @@ class QuestionView(viewsets.ModelViewSet):
         query = SearchQuery(self.request.query_params.get('query'), search_type='phrase')
         limit = self.request.query_params.get('limit') or 100
         offset = self.request.query_params.get('offset') or 0
-        vector = SearchVector('question_content')
+        vector = SearchVector('question_body')
         if query:
             queryset = queryset.annotate(rank=SearchRank(vector, query)).order_by('-rank')[int(offset):int(offset)+int(limit)]
         return queryset

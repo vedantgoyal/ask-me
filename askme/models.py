@@ -30,7 +30,7 @@ class Question(models.Model):
 		self.save()
 
 	def __str__(self):
-		return f'{self.question_content}' 
+		return f'{self.question_body}' 
 
 
 class Answer(models.Model):
