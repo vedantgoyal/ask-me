@@ -17,12 +17,11 @@ class QuestionView(viewsets.ModelViewSet):
     def get_queryset(self):
         queryset = Question.objects.all()
         query = self.request.query_params.get('query')
-        limit = self.request.query_params.get('limit')
+        limit = self.request.query_params.get('limit') or 5
+        offset = self.request.query_params.get('offset') or 0
         vector = SearchVector('question_content')
-        if not limit:
-            limit = 5
         if query:
-            queryset = queryset.annotate(rank=SearchRank(vector, query)).order_by('-rank')[:int(limit)]
+            queryset = queryset.annotate(rank=SearchRank(vector, query)).order_by('-rank')[int(offset):int(offset)+int(limit)]
         return queryset
 
 class AnswerView(viewsets.ModelViewSet):

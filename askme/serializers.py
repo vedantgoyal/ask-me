@@ -19,7 +19,7 @@ class AnswerSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Answer
         fields = (
-            "question",
+            #"question",
             "reply_id",
             "source_id",
             "answer_body",
