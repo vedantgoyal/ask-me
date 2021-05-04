@@ -28,3 +28,13 @@ class QuestionView(viewsets.ModelViewSet):
 class AnswerView(viewsets.ModelViewSet):
     queryset = Answer.objects.all()
     serializer_class = AnswerSerializer
+
+
+    def get_queryset(self):
+        queryset = Answer.objects.all()
+        question_id = self.request.query_params.get('qid')
+
+        if question_id:
+            queryset = Answer.objects.filter(question=(question_id))
+
+        return queryset

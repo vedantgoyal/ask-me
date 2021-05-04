@@ -21,7 +21,7 @@ class AnswerSerializer(serializers.HyperlinkedModelSerializer):
         model = Answer
         fields = (
             "id",
-            "question",
+            "question_id",
             "reply_id",
             "source_id",
             "answer_body",

@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'asdadasd' # not exposed outside of local 
+SECRET_KEY = '4hmb%ijvp*9&ibqnko@x9=0mi*63qdgg+xpzd!!-@v=0#jtew0' # not exposed outside of local 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '47e2eb13a10d.ngrok.io']
 
 
 # Application definition
@@ -79,7 +79,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'askmedb',
-        'USER': 'v.goyal',
+        'USER': 'fhannan',
         'PASSWORD': 'password',
         'HOST': '127.0.0.1',
         'PORT': '5432',
